@@ -4,7 +4,7 @@ const client = new Discord.Client();
 
 var prefix = ("-")
 
-client.login("NDcwNzA5MDcyNjk0NDc2ODMx.DjuOPg.IcC-iO7wECDqn1S6zDmNMOlfOU0"); //POUR LOGIN LE CLIENT
+client.login(process.env.TOKEN); //POUR LOGIN LE CLIENT
 
 client.on('ready', function() {
     console.log("bot online");              //AFFICHER LE FAIT QU'IL SOIT ONLINE DANS LA CONSOLE

@@ -79,7 +79,7 @@ client.on('message', message => {
         .addField("Created by :", "Rich836#3246")
         .addField("ID of the creator", "252369513222242324")
         .setFooter("Please ask the creator for further information.")
-      message.channel.send(info_embed)
+      message.channel.send(info_embed);
     }
 
     if(message.content === prefix + "server"){
@@ -90,7 +90,7 @@ client.on('message', message => {
         .addField("Created on : ", message.guild.createdAt)
         .addField("You joined on :", message.member.joinedAt)
         .addField("Number of user :", mesage.guild.memberCount)
-      message.channel.sendEmbed(server_embed)
+      message.channel.send(server_embed);
     }
 
     if(message.content.startsWith(prefix + "kick")){

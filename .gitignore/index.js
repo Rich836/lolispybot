@@ -71,7 +71,7 @@ client.on('message', message => {
     if(message.content === prefix + "info"){
       var info_embed = new Discord.RichEmbed()
         .setColor("##40A496")
-        .setTitle("Here are my information and the information of this server")
+        .setTitle("Here are my information and the information of my creator")
         .addField(" :robot: Name:", `${client.user.tag}`, true)
         .addField("Descriminator :", `#${client.user.discriminator}`)
         .addField("ID :", `${client.user.id}`)
@@ -82,7 +82,7 @@ client.on('message', message => {
       message.channel.send(info_embed)
     }
 
-    if(message.content.startsWith(prefix + "server")){
+    if(message.content === prefix + "server"){
       var server_embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTitle("Server Information")

@@ -202,8 +202,8 @@ client.on('message', message => {
     if(message.content.startsWith(prefix + "sondage")) {
         if(message.author.id === "252369513222242324"){
             const messageSlice = message.content.slice(prefix.length).trim();
-            say1 = messageSlice.substring(10,29)
-            say2 = messageSlice.substring(30) 
+            say1 = messageSlice.substring(10,28)
+            say2 = messageSlice.substring(29) 
             message.delete().catch();
             if (message.guild.channels.has(say1)){
               var sondage_embed = new Discord.RichEmbed()

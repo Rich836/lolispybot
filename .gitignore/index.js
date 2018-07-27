@@ -202,7 +202,7 @@ client.on('message', message => {
     if(message.content.startsWith(prefix + "sondage")) {
         if(message.author.id === "252369513222242324"){
             const messageSlice = message.content.slice(prefix.length).trim();
-            say1 = messageSlice.substring(11,29)
+            say1 = messageSlice.substring(10,29)
             say2 = messageSlice.substring(30) 
             message.delete().catch();
             if (message.guild.channels.has(say1)){

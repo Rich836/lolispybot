@@ -63,6 +63,7 @@ client.on('message', message => {
         .addField("stats", "To see your statistics")
         .addField("info", "Gave you information on me and on my creator")
         .addField("server", "Show the information and the statistics of your server")
+        .addField("kms", "If you want to kill yourself...")
         .setFooter("LoliSpy.exe - Developped by Rich836#3246")
         .setTimestamp()
       message.channel.send(fun_embed);
@@ -82,7 +83,7 @@ client.on('message', message => {
       message.channel.send(info_embed);
     }
 
-    if(message.content === prefix + "server"){
+    if(message.content.startWith(prefix + "server")){
       var server_embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTitle("Server Information")
@@ -92,6 +93,27 @@ client.on('message', message => {
         .addField("Number of user :", mesage.guild.memberCount)
       message.channel.send(server_embed);
     }
+    
+    if(message.content.startsWith(prefix + "kms")){
+        var kms = [
+
+            "https://img.fireden.net/a/image/1493/49/1493497462560.png",
+            "https://img.fireden.net/a/image/1518/17/1518173964959.png",
+            "https://cdn.discordapp.com/attachments/397377945213337601/476005022878924800/god_i_wish_that_were_me_by_ioiicore-d9zc3ax.jpg",
+            "https://me.me/market?meme_id=876381"
+        ];
+
+        var gif = kms[Math.floor(Math.random() * kms.length)];
+
+        var  kmsembed = new Discord.RichEmbed()
+            .setColor('Random')
+            .setTitle(`${message.author} want to kill himself :/`)
+            .setImage(gif)
+            .setFooter("Don't do that please")
+        message.channel.send(kmsembed)
+    }
+
+
 
     if(message.content.startsWith(prefix + "kick")){
         if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) 

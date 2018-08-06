@@ -113,8 +113,6 @@ client.on('message', message => {
         message.channel.send(kmsembed)
     }
 
-
-
     if(message.content.startsWith(prefix + "kick")){
         if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) 
         return message.channel.send("Sorry but you don't have the good permission for that")

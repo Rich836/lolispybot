@@ -158,18 +158,18 @@ client.on('message', message => {
     }
 
     if(message.content.startsWith(prefix + "clear")) {
-        if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGE")) 
-        return message.channel.send("Sorry but you don't have the good permission for that");
+
+        if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Sorry but you don't have the good permission for that");
 
         let args = message.content.split(" ").slice(1);
 
-        if(!args[0])
-          return message.channel.send("Please precise an amount of message")
-          message.channel.bulkDelete(args[0]).then (() => {
-          message.channel.send(`${args[0]} messages got deleted`)
-          
+        if(!args[0]) return message.channel.send("Please precise an amount of message")
+
+        message.channel.bulkDelete(args[0]).then (() => {
+          message.channel.send(`${args[0]} messages got deleted`).then(message => message.delete(5000));
         })
-      }
+
+    }
 
     if(message.content.startsWith(prefix + "mute")){
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) 

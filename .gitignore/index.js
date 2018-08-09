@@ -83,7 +83,7 @@ client.on('message', message => {
       message.channel.send(info_embed);
     }
 
-    if(message.content.startWith(prefix + "server")){
+    if(message.content.startsWith(prefix + "server")){
       var server_embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTitle("Server Information")

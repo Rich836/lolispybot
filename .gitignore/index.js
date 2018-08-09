@@ -90,7 +90,7 @@ client.on('message', message => {
         .addField("Server name :", message.guild.name)
         .addField("Created on : ", message.guild.createdAt)
         .addField("You joined on :", message.member.joinedAt)
-        .addField("Number of user :", mesage.guild.memberCount)
+        .addField("Number of user :", message.guild.memberCount)
       message.channel.send(server_embed);
     }
     

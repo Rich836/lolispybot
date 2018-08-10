@@ -13,41 +13,41 @@ client.login(process.env.TOKEN); //POUR LOGIN LE CLIENT
 
 
 
-const ytdl = require('ytdl-core');
+//const ytdl = require('ytdl-core');
 
-const queue = new Map();
-
-
-
-var servers = {};
+//const queue = new Map();
 
 
 
-function play(connection, message){
-
-  var server = servers[message.guild.id];
+//var servers = {};
 
 
 
-  server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
+//function play(connection, message){
+
+ // var server = servers[message.guild.id];
 
 
 
-  server.queue.shift();
+ // server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
 
 
 
-  server.dispatcher.on("end", function(){
-
-    if(server.queue[0]) play(connection, message);
+//  server.queue.shift();
 
 
 
-    else connection.disconnect();
+//  server.dispatcher.on("end", function(){
 
-  });
+//    if(server.queue[0]) play(connection, message);
 
-}
+
+
+//    else connection.disconnect();
+
+//  });
+
+//}
 
 
 
@@ -2215,137 +2215,137 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
 
 
 
-    case "play":
+    //case "play":
 
 
 
-    if (!args[1]) {
+   // if (!args[1]) {
 
 
 
-    message.channel.sendMessage("I don't have any music link"); 
+   // message.channel.sendMessage("I don't have any music link"); 
 
 
 
-    return;
+//return;
 
 
 
-  }
+  //}
 
 
 
-    if(!message.member.voiceChannel) {
+   // if(!message.member.voiceChannel) {
 
 
 
-    message.channel.sendMessage("You need to be in a vocal channel"); 
+   // message.channel.sendMessage("You need to be in a vocal channel"); 
 
 
 
-    return;
+   // return;
 
 
 
-  }
+  //}
 
 
 
 
 
-    if(!servers[message.guild.id]) servers[message.guild.id] = {
+//if(!servers[message.guild.id]) servers[message.guild.id] = {
 
 
 
-    queue: []
+    //queue: []
 
 
 
-  };
+  //};
 
 
 
 
 
-  var server = servers[message.guild.id];
+//  var server = servers[message.guild.id];
 
 
 
 
 
-  server.queue.push(args[1]);
+//  server.queue.push(args[1]);
 
 
 
-  if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
+//  if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
 
 
 
-  play(connection, message) 
+//  play(connection, message) 
 
 
 
-  });
+//  });
 
 
 
-  break; 
+//  break; 
 
 
 
-  case "skip":
+//  case "skip":
 
 
 
-    if(!message.member.voiceChannel) {
+ //   if(!message.member.voiceChannel) {
 
 
 
-    message.channel.sendMessage(":x: Tu dois être dans un salon vocal"); 
+  //  message.channel.sendMessage(":x: Tu dois être dans un salon vocal"); 
 
 
 
-    return;
+  //  return;
 
 
 
-  }
+  //}
 
 
 
-    var server = servers[message.guild.id];
+  //  var server = servers[message.guild.id];
 
 
 
-    if(server.dispatcher) server.dispatcher.end();
+ //   if(server.dispatcher) server.dispatcher.end();
 
 
 
-    break;
+ //   break;
 
 
 
-  case "stop":
+//  case "stop":
 
 
 
-    if(!message.member.voiceChannel) 
+  //  if(!message.member.voiceChannel) 
 
     
 
-    return message.channel.send("You need to be in a vocal channel");
+ //   return message.channel.send("You need to be in a vocal channel");
 
 
 
-    message.member.voiceChannel.leave();
+//    message.member.voiceChannel.leave();
 
 
 
-    break;
+//    break;
 
   
 
-  }
+//  }
 
 
 
